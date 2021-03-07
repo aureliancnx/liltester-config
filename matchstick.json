@@ -1,0 +1,73 @@
+[{
+		"batch_name": "Basic tests",
+		"exec": "./matchstick",
+		"tests": [{
+				"name": "No arguments",
+				"args": [],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 84
+			},
+			{
+				"name": "Help usage",
+				"args": ["-h"],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 0
+			},
+			{
+				"name": "Not enough arguments",
+				"args": ["0"],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 84
+			},
+			{
+				"name": "Too many arguments",
+				"args": ["4", "5", "20"],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 84
+			},
+			{
+				"name": "Arg1 not number",
+				"args": ["4d", "5"],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 84
+			},
+			{
+				"name": "Arg2 not number",
+				"args": ["4", "5d"],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 84
+			},
+			{
+				"name": "Not enough lines",
+				"args": ["1", "5"],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 84
+			},
+			{
+				"name": "Too many lines",
+				"args": ["100", "5"],
+				"expected_stdout": null,
+				"expected_stderr": null,
+				"expected_excode": 84
+			}
+		]
+	},
+	{
+		"batch_name": "Work tests",
+		"exec": "./matchstick",
+		"tests": [{
+			"name": "4x4 board",
+			"args": ["4", "1"],
+			"expected_stdout": "*********\n*   |   *\n*  |||  *\n* ||||| *\n*|||||||*\n*********\n\nYour turn:\nLine: ",
+			"expected_stderr": null,
+			"expected_excode": 0
+		}]
+	}
+]
